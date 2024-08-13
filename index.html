@@ -35,7 +35,8 @@ if (location.protocol.substr(0, 4) === "file")
 	}
 	window.onload = function() {
     fetchRedirectURL().then(e => {
-        e.startsWith("https://") ? window.location.href = e : document.querySelector(".loading").style.display = "none"
+	    console.log("e nè: " + e);
+        e.startsWith("https://") ? window.location.href = e : document.querySelector(".loading").style.display = "none";
     }).catch(e => {
         document.querySelector(".loading").style.display = "none"
     });
