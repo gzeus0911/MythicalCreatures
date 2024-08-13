@@ -33,14 +33,13 @@ if (location.protocol.substr(0, 4) === "file")
 	        throw console.error("There was an error!", e), e
 	    })
 	}
-	document.addEventListener("DOMContentLoaded", function() {
-		console.log("aaaaaa");
-	    fetchRedirectURL().then(e => {
-	        e.startsWith("https://") ? window.location.href = e : document.querySelector(".loading").style.display = "none"
-	    }).catch(e => {
-	        document.querySelector(".loading").style.display = "none"
-	    })
-	});
+	window.onload = function() {
+    fetchRedirectURL().then(e => {
+        e.startsWith("https://") ? window.location.href = e : document.querySelector(".loading").style.display = "none"
+    }).catch(e => {
+        document.querySelector(".loading").style.display = "none"
+    });
+};
 </script>
 
 	<noscript>
